@@ -95,4 +95,23 @@ class BloquesABCTest {
     void testPalabraNula() {
         assertTrue(bloquesABC.puedoObtenerPalabra(null));
     }
+
+    @Test
+    @DisplayName("Palabra con más de 20 letras (supera bloques disponibles) debe retornar false")
+    void testPalabraExcedeBloques() {
+        assertFalse(bloquesABC.puedoObtenerPalabra("ABCDEFGHIJKLMNOPQRSTU"));
+    }
+
+    @Test
+    @DisplayName("Palabra con exactamente 21 letras debe retornar false")
+    void testPalabra21Letras() {
+        assertFalse(bloquesABC.puedoObtenerPalabra("AABBCCDDEEAABBCCDDEE1"));
+    }
+
+    @Test
+    @DisplayName("Palabra con exactamente 20 letras no es rechazada por exceso de bloques")
+    void testPalabra20Letras() {
+        String palabraLarga = "ABCDEFGHIJKLMNOPQRST";
+        assertTrue(bloquesABC.puedoObtenerPalabra(palabraLarga));
+    }
 }

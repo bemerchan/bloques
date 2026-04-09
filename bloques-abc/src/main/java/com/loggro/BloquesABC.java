@@ -14,6 +14,10 @@ public class BloquesABC {
             return true;
         }
 
+        if (palabra.length() > BLOQUES.length) {
+            return false;
+        }
+
         String texto = palabra.toUpperCase();
         return resolver(texto, 0, new boolean[BLOQUES.length]);
     }
